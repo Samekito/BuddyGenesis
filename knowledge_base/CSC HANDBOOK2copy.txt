@@ -1,0 +1,359 @@
+DEPARTMENT OF COMPUTER SCIENCE
+1. Introduction
+Computer Science degree programme started as an option of the Department of Industrial Mathematics and Computer Science that has been in existence since the inception of The Federal University of Technology, Akure in 1982. The Department ran: (a) B. Tech degree in Computer Science; and (b) B. Tech degree in Industrial Mathematics as two degree options at the undergraduate level with duration of five years. The components of the degree programmes are as follows: Course work, Project work, Industrial Training. The course work involves lecture, tutorial and practical. The project work involves the presentation of seminar papers and submission of dissertation. The Industrial Training is usually being carried out during the Second Semester of the 400 Level of each year and each student submits a report of his or her industrial training experience in the form of a seminar paper for assessment and evaluation by the Department.
+The demand for the products of the programme over the years of existence has convinced one of the needs for the creation of the Department of Computer Science to further strengthen the performance of the programme in meeting the demands of the users of her products. Sequel to this, in July 2002, the University Senate approved the split of the Department into two Departments as follows: Department of Computer Science and Department of Industrial Mathematics. In 2014 Computer Science degree programme was accredited by the National Universities Commission and attains a FULL accreditation status.
+In 2016 Senate approved two additional degree programmes for the Department. These are B.Tech. Cybersecurity and B.Tech Information Technology. The Department admitted students into
+the new programmes as from the 2016/2017 academic session. In 2017, additional two degree programmes, B.Tech Information Systems and B.Tech Software Engineering and the establishment of the School of Computing was approved by the University Senate.Graduates of the Department can easily find employments in government establishments, industries, business, banking and accounting houses, oil companies, educational institutions, as Information Technology officers and professionals, commercial houses, higher institutions as trainee researchers and academicians, computer hardware and software development establishments. They are also equipped to establish their own private practice in information technology, computer training, software development and e-technology generally.
+2.  Mission and vision of the Department
+Mission
+The Department of Computer Science aims to create and disseminate knowledge through research and education in the theory and application of computing geared towards global needs and production of self-reliant high-level computing professionals, products and services.
+Vision
+The Department of Computer Science will be a leader in computer science education and at the forefront of educational innovation and disseminating new knowledge and whose graduates are globally recognized as innovative and well-prepared computing professionals.
+3. Research areas
+The areas of research in the Department of Computer Science are the following: expert systems, computing and communications, soft-computing, geoinformatics and bioinformatics, computer systems architecture, digital signal processing, software engineering, mobile computing, fast and efficient algorithms, parallel computing systems, computer systems and communications security, database, data mining and data warehousing, e-learning, digital library, web engineering and natural language processing
+4. Available equipment
+The Department has three main software laboratories with over five hundred computers (500) made of personal computers and thin clients connected to the Internet and also equipped with the state-of-the-art facilities. The hardware studies laboratory consists of HP Logic lab, HP logic analyzer, HP digital oscilloscope, HP pulse generator, pen plotter, HP digital multimeter, Sanwa analogue multimetre, TENICA digital multimeter, HP DC power supply variable AC power supply, transformer, FPGA boards, Kephera educational robot among others.
+The Department has a library/research laboratory which accommodates both e-library and physical books. The library/research laboratory is connected to the Internet. Each academic staff has a well-furnished office, desktop or laptop computer system which is connected to the Internet and a printer for a quality academic work. Most offices are provided with inverter power system.
+DEGREE PROGRAMME: B.Tech. Computer Science
+1. Programme philosophy
+The undergraduate Computer Science programme is designed to provide students with necessary tools for computing and information technology techniques and logical reasoning. The curriculum of the Computer Science emphasizes the art, science, engineering and technology of computing and information systems.
+The students are developed to meet the challenges of self employment as professional software and hardware engineers, private and public employment involving the following: (a)computer hardware system studies, design, assembling, construction, operation and maintenance; (b) computer software system studies, prototyping, development, implementation, documentation and maintenance; (c) data mining and warehousing; (d) principles and practice of Information Technology and Computer Networking, oil and gas manufacturing industries, banks, business and finance houses, educational institutions and government ministries and parastatals; and (e)design and development of local content intelligent systems solutions to immediate problems in our environment.
+2. Programme objectives
+The objectives of the bachelor honours degree programme in computer science are to:
+a. provide and promote sound practical and theoretical training in computer hardware, software and application areas, that will make the students useful in both private and public sectors of the economy;
+b. identify the basic problems of the society and find appropriate computer solutions to them;
+c. develop and offer service courses in Computer Science to other Departments in the University;
+d. equip the students with the capacity for professional practice in computing and communications;
+e. develop in students through an education in computer science a range of transferrable applicable skills of information technology to all aspects of human endeavours;
+f. develop the students for the purpose of self-employment and job placements in the government and industry;
+g. generate in students to appreciate of the importance of computer in an industrial, economic, technological and social context; and
+h. develop the students through sound academic and professional programmes as a basis for further studies in computer science or multi-disciplinary studies involving computer science.
+3. Admission requirements
+The entry requirements for the degree programme shall be:
+1. Unified Tertiary Matriculation Examination (UTME) requirements
+a. UTME subjects must include English Language, Mathematics, Chemistry and Physics
+b. Five Credit Passes at not more than TWO sittings, which must include English Language, Mathematics,Chemistry, Physics, and Biology or Agricultural Science,at Senior Secondary School Certificate.
+2. Direct entry requirements
+The following may be considered in addition to the minimum requirements in 1(b):
+i. Two A' Level passes with minimum of c grade in Mathematics, Physics, or Chemistry;
+ii. At least Upper Credit pass in National Diploma in Computer Science from a recognised Polytechnic or its equivalent; and
+iii. NCE with at least credit pass both in Computer Science/Mathematics; Computer Science/Physics or Mathematics/Physics.
+4. Programme duration
+The duration of the programme is normally ten academic semesters for UTME and eight academic semesters for the direct entry candidates. If a candidate fails to graduate within the stipulated academic sessions, he or she will not be allowed to exceed a total of fifteen academic semesters in the case of UTME candidate and thirteen semesters in the case of direct entry.
+5. Requirements for graduation
+To be eligible for the award of B.Tech. degree in Computer Science, a student must have: 
+i. passed all the core courses, university and school required courses and electives;
+ii. accumulated a minimum of 171 course units for students admitted through UTME and 128 for students admitted through direct entry;and
+iii. attain a minimum CGPAof1.50.
+However, the direct entry students are expected to audit some 100-level courses of the University such as GNS101, GNS102,GNS103, MEE101 and MEE102. These courses must be passed at first sitting to be qualified as zero unit otherwise they will be used for computation in the affected students' results.
+The scoring and grading systems for the B.Tech Computer Science programme are as follows.
+(1)
+Credit Units(ii)
+Percentile
+Scores(iii)
+Letter
+Grade (iv)
+Grade point (v)
+Grade Point
+Average (vi)
+Cumulative
+Grade Point
+Average(vii)
+Class of 
+DegreeVary according tocontact hoursassigned to each course per week per semester and according to work load carried by
+student70-100 
+60-69
+50-59 
+45-49 
+0-44A
+B
+C
+D
+F5
+4
+3
+2
+0Derived by Multiplying(i) and (iv)
+and dividing
+by total
+Credit Units4.50-5.00 
+3.50-4.49 
+2.40-3.49 
+1.50-2.39First Class
+2nd Class Upper 2nd Class Lower
+Third Class
+6. COURSE OUTLINE
+All the courses indicated in each of the tables given below are core and required for B.Tech degree in Computer Science. In addition to the core and required courses, students have the option of registering for elective courses run by other Departments of the University. The industrial training for undergraduate students takes place at the Second Semester of their 400 Level.
+100 LEVEL FIRST SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPBIO 101CGeneral Biology I2103BIO 103CGeneral Biology Practical I0031CSC 101CIntroduction to Computer Science1032CHE 101CGeneral Chemistry I2103CHE 103CExperimental Chemistry I0031GNS 101RUse of English I1102GNS 103RInformation Literacy1001MEE 101REngineering Drawing1063MTS 101CIntroductory Mathematics I2103PHY 101CGeneral Physics I2103PHY 107CGeneral Physics Laboratory I0031TOTAL23
+100 LEVEL SECOND SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPCSC 102CIntroduction to Computing2033CHE 102CGeneral Chemistry II2103CHE 104CExperimental Chemistry II0031GNS 102RUse of English II1102GNS 106RLogic and Philosophy1102MTS 102CIntroductory Mathematics II2103PHY 102CGeneral Physics II2103PHY 108CGeneral Physics Laboratory ll0031MEE102CWorkshop Practice0062TOTAL20C – Core; E – Elective; R – University Required Course
+200 LEVEL FIRST SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPCSC 201CIntroduction to Computer Programming2033CSC 203CDigital Design1032CSC 207CIntroduction to Web Design1001CSC 205CStructured Programming1032CSC 241CIntroduction to Windows and Linux Operating Systems1032GNS 201RMan and His Environment1102MTS 201CMathematical Methods I2103MTS 203CLinear Algebra I1102MTS 209CDifferential Equation2103TOTAL20
+200 LEVEL SECOND SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPCSC 202CComparative Programming Languages2033CSC 204CAssembly Language Programming1032CSC 206CHuman Computer Interaction1032CSC 208CObject Oriented Programming1032CSP 210RGeneral Agricture (Practical)0031ECN 202CPrinciples of Economics2103STA 102CStatistics for Physical Science and Engineering3134PHY 210CBasic Electronics2134TOTAL21
+300 LEVEL FIRST SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPCSC 301CComputer Architecture I2002CSC 303CDesign and Analysis of Computer Algorithms2002CSC 305CSystem Programming with C 1032CSC 307CDiscrete Structures1102CSC 309CTheory of Computation2002CSC 311CDigital Signal Processing1032CSC 313CData Communications1032CSC 315CData Analysis1102MTS 303CAbstract Algebra I2103EMT 301RIntroduction to Entrepreneurship2002TOTAL21
+300 LEVEL SECOND SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPCSC 302CData Structures and Algorithms1032CSC 304COperating Systems I1032CSC 306CSystem Analysis and Design2002CSC 308CObject-Oriented Analysis and Design2002CSC 310CComputer Hardware Systems and Maintenance1032MTS 202CNumerical Analysis2103MTS 204CLinear Algebra II1102STA 306COperations Research I2103EMT 302CPractical Skills in Entrepreneurship0093TOTAL21
+400 LEVEL FIRST SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPCSC 401CCompiler Construction2002CSC 403CComputer Networks1032CSC 405CElectronic Commerce Technologies2002CSC 407CDatabase Systems I2002CSC 409CSoftware Engineering I2002CSC 411CComputer Graphics and Virtual Environments2002CSC 413COperating Systems II1032CSC 415CWeb Applications Development1032CSC 417CProgramming Languages Concepts1001TOTAL17
+400 LEVEL SECOND SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPCSC 402RIndustrial Based Training00124CSC 404RFUTA Supervision Assessment00124CSC 406RStudent Report and Seminar00124TOTAL10
+500 LEVEL FIRST SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPCSC 501CDatabase Systems II2002CSC 503CComputer and Network Security1032CSC 505CFault-Tolerant Computing2002CSC 507CTechnology Management and Professional Issues1001CSC 509CArtificial Intelligence and Soft-computing2002CSC 511CSoftware Engineering II2002CSC 513CResearch Methodology1001CSC 599RStudent’s Individual Project00186TOTAL18
+500 LEVEL SECOND SEMESTER 
+Course CodeStatusCourse TitleContact HoursUnit (s)LTPCSC 502CIntroduction to Expert Systems2002CSC 504CComputer Architecture II2002CSC 506CEmbedded Systems1032CSC 508CModelling and Simulation2002CSC 510CIntroduction to Cluster Computing1032CSC 512CSpecial Topics2002CSC 514CPerformance Evaluation and Benchmarking2002CSC 516CGrid and Cloud Computing2002TOTAL16
+7. COURSE SYNOPSIS
+CSC101-Introduction to Computer Science (2units)
+History of computers; functional components of a computer; characteristics of a computer system. Introduction to concepts of programming logic, principles and techniques. Study and use of the Microsoft office productivity suite with an emphasis on database design and development. Introduction to VBA programming languages and development of customized solutions for business and personal needs.
+CSC102-Introduction to Computing Prerequisite-CSC101 (3units)
+Broad introduction to programming methodology and algorithm. Emphasis is on problem solving strategies and techniques for developing/documenting applications, including principles of structured programming, problem decomposition, program organization, the use of procedural abstraction and basic debugging skills. Visual BASIC programming language serves as the vehicle to illustrate the many concepts. Introduction to programming VB.NET-Introduction, the VB .NET language, the .NET framework, developing desktop applications, controls, common dialogue boxes and menus, developing browser-based applications, web services, ADO .NET-developing database applications.
+CSC201-Introduction to Computer Programming Prerequisites-CSC101, CSC102 (3units)
+Introduction to problem solving methods and algorithm development, designing, coding, debugging and documenting programs using techniques of a good programming language style, programming language and programming algorithm development. A widely used programming language should be used in teaching the course such as object-oriented FORTRAN, MATLAB.
+CSC202-Comparative Programming Languages Prerequisite-CSC201 (3 units)
+Current issues in programming languages. Language topics include imperative, functional, logic and object-oriented programming, and other programmable applications such as symbolic manipulations and simulation. Implementation of concepts such as binding, scope, looping, branching, subprograms and parameter parsing, tasks and concurrency, heap management, exception handling, templates, inheritance and overloading.
+CSC203-Digital Design (2 units)
+Introduction to modern digital design, number systems and codes, computer arithmetic, binary logic and logic gates Boolean algebra, analysis and synthesis of combinational and sequential circuits. Circuit minimization techniques; sequential circuits with programmable devices. Introduction to VHDL.
+CSC204-Assembly Language Programming Prerequisites-CSC203, CSC205 (2units)
+Introduction to general machine structure, program counters and instruction register; instruction sets; addressing modes. Assembly language programming - element of assembly language statements (constant operands, instruction operands) basic instructions, branching and looping, procedures, string operations, bit manipulations, the assembly process, floating point arithmetic, decimal arithmetic, input/output. Interfacing assembly language programs to high-level language programs.
+CSC205-Structured Programming Prerequisites-CSC102 (2units)
+Structured programming concepts and structures; introduction to Perl programming language - introduction, scalar data, lists and arrays, subroutines, hashes, 1/0 basics, concepts of regular expressions, using regular expressions, more control structures, modules and objects, standard modules, file handles and file tests, directory operations, manipulating files and directories, string and sorting. Perl as technology - Unicode, inter-process communication thread, internals and externals; databases and Perl, XML and SOAP networking programming -sockets, email connectivity, FTP, LDAP;Perl/Tck; win32 modules and extensions, OLE automation, ODBC extension for win32, CGl and web server programming.
+CSC206-Human Computer Interaction (2units)
+Human factors of interactive software; theories; principles and guidelines of human computer interaction design including command line interface, graphical user interface and application programmatic interface; event-driven application design and development; direct manipulation; interaction devices; system and feedback messages, gesture recognition system, computer supported cooperative work, virtual reality, augmented reality, multimedia system, robotic etc.
+CSC207-Introduction to Web Design (1 unit)
+Introduction to the Internet and web servers; the web environment,authoring -HTML overview, structural HTML tags, formatting text, creating links, adding images and other page elements, tables, frames, forms, specifying colour in HTML, cascading style sheets, server side include; graphics- GIF, JPEG, PNG formats, designing graphics with palette, animated GIFs, multimedia and interactivity, introduction to JavaScript, DHTM,XML,XHTML, WAP and WML.
+CSC208-Object-Oriented Programming (2 units)
+Introduction to object-oriented and Java or other object-oriented programming language, why object-oriented is fundamentally different from imperative programming, nuts and bolts (scalars, strings, and expressions, similarities and differences to C); classes(their interfaces and implementation); control structures and arrays; inheritance (extending classes, abstract classes, overriding polymorphism and dynamic binding); exception handling; interfaces; graphical1/0; stream 1/0 and object serialization.
+CSC301-Computer Architecture l Prerequisites-CSC203, CSC204 (2 units)
+Introduction to computer architecture; performance evaluation:metrics and calculations, performance equations, Amdahl's law; Instruction set architecture; impact of high-level language and compilers; introduction to computer arithmetic; CPU design and architecture; pipelining and instruction level parallelism.
+CSC302-Data Structures and Algorithms (2 units)
+Introduction to analysis of algorithms; linked lists, stacks and queues;trees, priority queues; search trees; sorting; hashing, garbage collection; storage management; maps and dictionaries; text processing; graphs, generic programming: coding for re-use of both data structures and algorithms.
+CSC303-Analysis and Design of Computer Algorithms (2units)
+Introduction to algorithms and its importance, mathematical foundations: growth functions, complexity analysis of algorithms, summations, recurrences, sorting algorithms. Algorithm design:divide-and-conquer approach, greedy approach. Graph algorithms:graph searching, topological sort, minimum spanning tree, shortest paths, backtracking and its applications in games. String matching. Dynamic programming and longest common subsequence. Theory of NP-completeness. Turing machines and the halting problem.
+CSC304-Operating Systems l Prerequisites-CSC204 (2units)
+History of operating systems, operating system concepts and structure. Processes (communication and scheduling), memory management, input/output and file systems. Protection and security. Case studies of some operating systems such as Windows and Unix operating systems.
+CSC305-System Programming with C (2units)
+Introduction to system programming; introduction to Unix or Unix-like operating system and GUl; introduction to C programming with gcc program structure, compiling and software development, basic scalar data types and their operators, flow control, complex data types:arrays, structures and pointers, structuring the code: functions and modules, preprocessing source code, error handling and debugging;file 1/0; network programming; concurrency, process management and signals; inter-process communication; shells and scripting;,compiling, linking and loading; memory and virtual memory;embedded system programming.
+CSC306-Systems Analysis and Design (2units)
+Software development life cycle; structured top-down and bottom-up design, dataflow diagramming, entity relationship modelling;study of computer aided software engineering, I/0 design and validation, file and database design; design of user interfaces;comparison of structured and object-oriented design.
+CSC307-Discrete Structures (2units)
+Sets, relations, functions, recurrence relations, prepositional calculus, Boolean algebra, graph and group theories, introduction to monodies and formal language theory.
+CSC308-Object-Oriented Analysis and Design Pre-requisite CSC202 (2units)
+Object-oriented approach to information system development, particularly in reference to the earlier stages of analysis and design Importance of modelling, principles of modelling, object-oriented modelling, conceptual model of the Unified Modelling Language(UML), architecture, software development life cycle. The principles and basic concepts of object orientation and the different aspects of object-oriented modelling as represented by the UML technique. Case study of a typical UML-based CASE tool.
+CSC309-Theory of Computation (2units)
+Introduction to the theory of computation; central areas of theory of computation: automata, computability and complexity; regular expressions, finite automata, pushdown and linear bounded automata; formal grammars and their corresponding classes of languages, Turing machines, undecidability, recursive functions;complexity theory; NP-completeness.
+CSC310-Computer Hardware Systems and Maintenance (2 units) Prerequisites-CSC203, CSC204
+Introduction to computer systems; computer system parts;maintenance techniques, approaches and tools; diagnostics techniques; system assembly and installation; troubleshooting and repair of computer systems and accessories; portables, etc.
+CSC311-Digital Signal Processing (2 units)
+Introduction; brief review of analogue and digital signal processing systems; discrete time linear time-invariant signal processing systems; design of finite impulse response digital filters; introduction to z-transforms and infinite impulse response type discrete time filters; design of infinite impulse response type digital filters using analogue filter approximations; digital processing of analogue signals and other data; introduction to the discrete Fourier transform.
+CSC312-Python Scripting for Computational Science (1unit)
+Introduction, basic Python, numerical computation in Python,combining Python with FORTRAN, C and C++, introduction to GUI programming, web interfaces and CGI programming, advanced python.
+CSC313-Data Communications Prerequisites-CSC205, CSC305 (2units)
+Introduction to digital and analogue representations and channels; bandwidth and noise; channel capacity; Nyquist, Shannon; telecommunication history; switching, circuit-switched networks,datagram networks, concept of virtual circuit networks, structure of circuit and packet switch. The concepts of DSL and xDSL; multiplexing;,FDM, TDM, WDM, statistical multiplexing; virtual circuits and datagrams; Aloha, CSMA, CSMA-CD, token passing, CDMA, spread spectrum techniques; simple performance analysis; error correction and detection; types of errors; detection versus correction, block coding, hamming distance, linear block codes (single parity check,hamming codes), cyclic codes, CRC encoder and decoder, DRC polynomial and its degree, checksum; selective retransmission and flowcontrol.
+CSC314-Graph theory (2units)
+The basics, matching, covering and packing, connectivity, planar graphs, colouring, flows, external graph theory, infinite graph, Ramsey theoryfor graphs, Hamilton cycles, random graphs, minor tree, wQo.
+CSC315-Data Analysis (2 units)
+Review of basic concept of probability theory, common distribution functions, moments of distribution functions, the foundation of statistical analysis, sampling distribution of moments, statistical tests and procedures, linear regression and correlation analysis, the design of experiments, least squares, Fourier analysis and related approximation norms. Laws of large numbers and the central limit theorem, random walk, Markov Chains, introduction to Poison process.
+CSC401-Compiler Construction Prerequisite-CSC309 (2units)
+Introduction to language translators; lexical analysis; grammars, topdown parsing methods; bottom-up parsing techniques; automatic compiler generation tools; symbol tables; semantic analysis, attribute grammars, syntax-directed translation; intermediate code generation;code generation: expressions and simple control structures, records and arrays; procedures and functions; runtime memory management;code optimisation; error detection and recovery; compilation of object-oriented languages, Java Virtual Machine.
+CSC402 (4 units), CSC404 (4 units), CSC406 (4 units) – Students Industrial Work Experience Scheme
+Students are attached to private and public organizations for a period of six months with a view to making them acquire practical experience and to the extent possible, develop skills in all areas of computing. Students are supervised during the training period and shall be expected to keep records designed for the purpose of monitoring their performance. They are also expected to submit a report on the experience gained and defend their reports.
+CSC403-Computer Networks Prerequisite-CSC313 (2units)
+Introduction to computer networks: hardware and software; network layer: network layer design issues; addressing: physical versus logical addressing; IPv4 addresses; forwarding; routing algorithms; routing in the Internet; the network layer in the Internet; network address translation; IPv6; internetworking; transport layer; congestion control algorithms; application layer. Introduction to wireless networks and mobile computing; network management systems; security threats and solutions; ATM; multimedia applications and its impact on networking; introduction to software-defined networks, sensor networks
+CSC405-Electronic Commerce Technologies Prerequisite-CSC205 (2 units)
+The concepts and tools of electronic commerce; technology of the internet, core network protocols, agents, commerce client technology; survey of technologies used to support all aspects of electronic commerce; structural design of electronic commerce systems; client-server architecture, Java Beans, Enterprise Java Beans, Java Server Pages; characteristics, properties and processing of electronic payment; security; design and implementation issues related to web application for electronic commerce.
+CSC407-Database Systems I (2units)
+Database concepts: file systems and databases, relational database model; design concepts and implementation: entity relationship modelling; normalisation of database tables, structured query language; database design and implementation; introduction to transaction management and concurrency control, distributed database management systems; database privacy, security, failure and recovery.
+CSC409-Software Engineering I (2units)
+Introduction to the techniques, and methodologies of software engineering, specification modelling, requirements analysis and definition, specification, agile software development, software design, quality assurance, testing, development tools and environments and software engineering ethics. Dependability and security-sociotechnical systems, dependability and security, dependability and security specification, dependability engineering, security engineering, dependability and security assurance.
+CSC411-Computer Graphics and Virtual Environments (2 units)
+Overview of input/output hardware, elements of graphics software;fundamental algorithms; two-dimensional viewing and transformation; design for interaction, and introduction to three dimensional concepts; digital photography; video editing; survey of applications. Virtual environments technology, requirements and applications; presence; displays; programming virtual environments;devices. An overview of computer graphics for visualization, scientific visualization techniques; introduction to computer animation
+CSC413-Operating Systems Il Prerequisite-CSC304 (2units)
+History; design principles; kernel modules; installation and maintenance of Unix operating systems such as Linux; survey of the operating system facilities and commands. Process management, scheduling, memory management, file system, input/output, network structure and security. Effective use of the operating system tools for writing shell scripts and batch files, pattern matching, editing, macro processing, data analysis and text processing. Overview of X, introduction to X toolkit, event handling in the Xtoolkit, programming with widgets, drawing operations, colour and images, selections, writing widgets.
+CSC415-Web Applications Development Prerequisites-CSC207 (2 units)
+Introduction, content transport, caching techniques for web content and streaming media, navigating 'content networks, peer-to-peer content networking, interactive content delivery-instant messaging, beyond web surfing, building content networks. The basics of PHP, the PHP language, code organization and reuse; object-oriented programming, moving beyond libraries and object-oriented programming, extending objects, working with arrays, strings and characters of the world, character set and Unicode, interacting with server, redirecting the user. Database basics using MySQL, data access, PHP and data access, planning and implementing web applications cookies and sessions, user authentication, advanced output and output buffering, data validation with regular expression, files and directories; strategies for successful web applications.
+CSC417-Programming Languages Concepts (1unit)
+Preliminaries, evolution of programming languages, describing syntax and semantics, lexical and syntax analysis, names, bindings, type checking, expression and assignment statement, statement-level control structures, subprograms, abstract data types, support for object-oriented languages, concurrency, exception handling, functional and logic programming,
+CSC501-Database Systems II (2units) Prerequisite-CSC407
+Object-oriented databases; client/server systems; data warehouse;databases in electronic commerce; web database development and database administration. Introduction to fuzzy database approaches, state of the art in fuzzy database modelling, fuzzyERR, representation of fuzzy knowledge in relational databases, mapping fuzzyERR model concepts to relations.
+CSC502-Introduction to Expert System Prerequisite-CSC509 (2units)
+The nature of expert systems; types of applications of expert systems;relationship of expert systems to artificial intelligence and to knowledge-based systems; distinguishing features of expert systems;theoretical foundations; basic forms of inference; the representation and manipulation of knowledge in a computer; rule-based representations; logic-based representations; frames; semantic and partitioned nets; basic components of an expert system; generation of explanations; handling of uncertainties; truth maintenance systems;expert system architectures; an analysis of some classic expert systems; building expert systems; methodologies for building expert systems: knowledge acquisition and elicitation, formalisation, representation and evaluation; knowledge engineering tools; expert systems paradigms.
+CSC503-Computer and Network Security (2units)
+Introduction, threats, risks and vulnerabilities, data security policies/administration, security procedural control, security models, designing secure systems, effects of hardware on security,operating systems security, network security, database security,programming language security, cryptography, distributed systems security, and information systems security.
+CSC504-Computer Architecture II Prerequisite-CSC301 (2units)
+Advanced pipelining and instruction level parallelism- dynamic scheduling, branch prediction, superscalar issue, compiler and architectural support for ILP; register renaming; Memory hierarchy caches and cache hierarchies, cache organizations, cache performance, compiler support for cache performance, main memory organization, virtual memory, TLBs. I/0-characteristics of 1/0 devices;buses; polling; interrupt-driven 1/0; DMA. Parallel processing, multiprocessor and thread-level parallelism; interconnection networks and clusters, vector processing, multiprocessing.
+CSC505-Fault-Tolerant Computing (2units) Prerequisites- CSC203, CSC30
+Introduction and overview of fault tolerant schemes; fault and error modelling; test generation and fault simulation; concepts in fault tolerance; reliability/availability modelling; system level diagnosis;low level fault-tolerance - coding techniques (basic principles, parity bit codes, hamming codes, error detection and retransmission codes, burst error correction codes, Reed-Solomon codes, etc.); high-level fault tolerant techniques in systems: rollback, check pointing, reconfiguration; software fault-tolerance; fault tolerant routing;integrated hardware/software fault-tolerance; redundancy, spares and repairs -apportionment, system versus component redundancy, parallel redundancy, RAID system reliability, N-modular redundancy; software reliability and recovery techniques, network system reliability, reliability optimization.
+CSC506-Embedded Systems (2 units)
+Introduction to embedded computing and embedded systems;typical embedded systems-core of the embedded system, memory, communication interface; embedded firmware; embedded real-time operating systems; real-time operating systems-based embedded system design; task communications and synchronization.
+CSC507-Technology Management and Professional Issues (1unit)
+Introduction to technological systems and organizations;characteristics of systems and organizations; professional issues; legal issues; ethical issues; risk; risk assessment and management; project management; skills of a project manager and resource planning.
+CSC508-Modelling and Simulation (2 units)
+Introduction to simulation concepts, introduction to models, problem formulation, project planning, system definition, input data collection and analysis, modelling translation, verification, validation, experimental design, analysis, project reports and presentations, training simulators.
+CSC509-Artificial Intelligence and Soft-computing (2units)
+The evolution of computing, defining artificial intelligence, general problem solving approaches in artificial intelligence, characteristic requirements for the realization of intelligent systems, programming languages for artificial intelligence and architecture for artificial intelligence machines. The psychological perspective of cognition;production systems; problem solving by intelligent search; the logic proposition and predicates; default and non-monotonic reasoning. Structural approach to knowledge representation, the nature and goals of soft-computing such as neural networks, fuzzy logic and genetic algorithms to artificial intelligence. Dealing with imprecision and uncertainty, structural approach to fuzzy reasoning, machine learning techniques, machine learning using neural networks, genetic algorithms, realizing cognition using fuzzy neural networks.
+CSC510-Introduction to Cluster Computing (2units)
+Introduction to cluster computing; introduction Linux operating system, Linux kernel, interconnect technologies - the Ethernets, myrinet, cLAN, infiniband, scalable coherent interface, virtual interface architecture; network software -TCP/IP (IP addresses and zero-copy protocols), sockets, distributed file system, setting up clusters, parallel programming with MPI; advanced topics in MPI programming-dynamic process management in MPI, fault tolerance, measuring MPI performance, parallel programming with PVM, cluster workload management software, parallel virtual file system.
+CSC511-Software Engineering Il Prerequisite-CSC409 (2 units)
+Introduction to software reuse, component-based software engineering, distributed software engineering, service-oriented architecture, embedded software and aspect-oriented software engineering. Software management-project management, project planning, quality management, configuration management and process improvement. Modern software review techniques and technologies.
+CSC512-Special Topics (2 units)
+Recent topics and developments in computing are expected to be introduced from year to year. Apart from seminars to be delivered by lecturers or guests, students are expected to do substantial readings on their own
+CSC513-Introduction to Research Methodology (1unit)
+Foundations of research; problem identification and formulation;research design; qualitative and quantitative research; measurement;sampling; data analysis; Interpretation of data and paper writing; use of encyclopaedias, research guides, handbook etc., academic databases for computer science discipline; use of tools/techniques for research: reference management software, software for detection of plagiarism.
+CSC514- Performance Evaluation and Benchmarking (2units)
+Introduction and overview, performance modelling; measurement techniques - on-chip performance monitoring, off-chip hardware monitoring, software monitoring, microcoded instruction, aggregating performance metrics over a benchmark suite, statistical techniques for computer performance analysis, statistical sampling for processor and cache simulation, statistical simulation, benchmark simulation and introduction to analytical models; energy and power simulator, validation.
+CSC516-Grid and Cloud Computing (2units)
+Evolution of distributed computing; grid computing infrastructures;cloud computing; service oriented architecture; introduction to grid architecture and standards; virtualization; cloud deployment models;categories of cloud computing: everything as a service; pros and cons of cloud computing; implementation levels of virtualization:virtualisation structure; virtualisation of CPU, memory and i/o devices;virtual clusters and resource management; virtualization for data centre automation; programming model; security: trust models for grid security environment; grid security infrastructure; cloud infrastructure security; aspects of data security, provider data and its security.
+CSC599-Student's Individual Project (6units)
+An independent or group investigation of appropriate software, hardware, communication and networks or IT related problems in computer science carried out under the supervision of a lecturer. Before registering, the student must submit a written proposal to the supervisor to review. The proposal should give a brief outline of the project, estimated schedule of completion, and computer resources needed. A formal written report is essential and an oral presentation may also be required.
+GENERAL ACADEMIC REGULATIONS FOR DEGREE COURSE
+Registration Procedure
+1. Registration for a course shall normally be within the first week of resumption in a semester.
+2. Late registration shall only be allowed after payment of the late registration fee and shall come up within the week following the normal registration period.
+3. Any student who fails to register up to the end of the late registration period shall be deemed to have unilaterally withdrawn from the university for that semester.
+4. Registration for a course shall automatically mean registration for the course and its examination. No formal registration for examination shall be carried out.
+5. A student may drop a course or add a new one provided he completes the prescribed form and does so within four (4) weeks of the commencement of lectures in the course and obtains the approval of his Head of Department.
+6. The maximum Total Load Unit (TLU) to be carried by a student is 24 units per semester and the minimum is 15. If it is established that a student illegally registered for more than the maximum number of units, the best course that makes excess units shall be canceled.
+7. Where a student has lower level course(s) outstanding such a lower level course(s) should be registered for at the next available opportunity before registering for the higher level course equivalent to the number of outstanding lower level courses.
+8. Every student shall register in person and cases of impersonation will be severely punished. Submission of course registration forms on behalf of any other student shall be treated as impersonation and shall be severely punished.
+9. Completed course registration forms duly signed by the Head of Department should be forwarded to the Registrar not later than four (4) weeks from the beginning of the semester.
+10. The list of students registered for each course shall be forwarded to the Teaching Department and the Registry not later than four (4) weeks from the beginning of the semester.
+EXAMINATION REGULATIONS, OFENCES AND DISCIPLINARY ACTIONS
+Requirements for the Examination
+1. In order to be eligible for a course examination, a student shall be expected to attend a minimum of 65% of the lecture, tutorials,practical and classes for the course in which he/she is registered. In this regard, course lecturers shall obtain and keep records of attendance.
+2. Once a student has registered for a course and he/she has not withdrawn from the course by the middle of the semester, he/she is automatically deemed to have registered for the course examination.
+3. No student who has entered in for an examination shall postpone or withdraw from the examination except on acceptable medical grounds, and in consultation with the Head of Department and the Dean of the School.
+4. Candidates who fail to present themselves for an examination for reasons other than illness, accident or some exceptional circumstances shall be deemed to have failed the course. Any student absent on the ground of illness must produce a medical report certified by the University Doctor of Health Services.
+Components of Examination
+Final grades in courses shall comprise of continuous assessment and end-of-course examinations in the theory, practical, studio, oral examination, SIWES, and otherwise specified.
+Continuous Assessment
+Students' achievement shall be based on continuous assessment of the course and final examinations. For continuous assessment, there shall normally be three tests/assignments. He student shall be periodically informed of his/her standing in the course. The final examination for each course shall normally be at the end of the semester in which the course is offered. Such final examination will normally comprise a theory paper, a practical/oral examination. The course grade will be made up of the student's score in the continuous assessment as well as the end-of course examination. The continuous assessment shall carry a maximum of 40% unless otherwise specified.
+Instructions to Candidates
+1. A candidate shall be admitted into the examination hall on production of his/her student identity card, and be properly identified to avoid impersonation.
+2. There shall be no smoking in the examination hall.
+3. Candidates must attend punctually at the times assigned for the papers, and must be ready to be admitted into the examination hall ten minutes before the time the examination is due to start. Candidates shall not be permitted in any circumstances to enter the examination hall more than fifteen minutes before the time appointed for the commencement of the examination.
+4. Candidates arriving more than half an hour after the examination has started shall be admitted only at the discretion of the Chief invigilator. Candidates who come late shall not be allowed extra time.
+5. Similarly, except with the special permission of the Chief invigilator, candidates must not leave the examination hall during the first half and the last quarter of an hour of the examination. Outside those periods' candidates with the special permission of the Chief invigilator, may leave the room temporarily and then only if accompanied byan official.
+6. No books or any unauthorized materials shall be bought into the examination hall. Candidates may bring with them only authorized materials such as pens, pencils, rubber and any such other materials which they are specially allowed to bring to the examination hall. Note: Programmable calculator, laptop calculator, data banks may only be brought to the examination hall with the special permission of the Chief Examiner.
+7. While the examination is in progress, communication between candidates is strictly forbidden, and any such candidate found to be giving or receiving irregular assistance, cheating or aiding and abetting any irregularity in an examination shall face disciplinary actions.
+8. Silence must be observed in the examination hall.
+9. The only permissible way of attracting the attention of the invigilator is by the candidate raising his/her hand.
+10.The use of scrap of paper is not permitted. All rough work must be done in the answer sheets and crossed out neatly. Supplementary answer bookiets, even if they contain only rough works, must be tied inside the main answer booklet.
+11. Candidates are advised in their own interest to write legibly and avoid using faint ink. Answers must be written in English, except otherwise instructed.
+12. Before handing in their scripts at the end of the examination, candidates must satisfy themselves that they have inserted at the appropriate places their matriculation numbers and the numbers of questions they have answered.
+13. It shall be the responsibility of each candidate to personally hand in his/her scripts before he/he leaves the examination hall. Except for the question paper, and any materials they have permission to bring with them, candidates are not allowed to remove or mutilate any paper or material supplied by the University.
+14. Candidates must personally complete attendance sheet and submit same to the invigilator as evidence of taking the examination before leaving the hall.
+Examination offences
+1. Sitting for an examination for which a candidate is not qualified
+2. Smoking in the examination hall.
+3. Leaving the examination hall without permission vii-xii above.
+4. Any action by a candidate contravening any of the instructions as in 
+5. Removal or mutilation of any paper or any other material supplied by the University.
+6. Any case of bringing in any unauthorized materials into the examination hall by a candidate 
+7. Any case of giving or receiving irregular assistance, cheating or aiding and abetting in an examination.
+8. Any case of impersonation and, or conspiracy with impersonation during an examination.
+9. Any case of disruption of examination, disorderly behaviour or assault on invigilator.
+10. Any attempt by the candidate directly or indirectly to influence the process of an examination with a view of obtaining undue advantage, vitiating the examination or getting involved in examination leakages.
+11. Any attempt by the candidate or staff to unlawfully have or give a pre-knowledge of an examination question or to influence the marking of scripts or the award of marks by the internal or external examiner
+12. Any other offence/malpractice as may be determined by the Disciplinary Committee as impacting negatively on the smooth and fair conduct of the examination.
+Disciplinary Action
+1. A candidate found guilty of any of the offences listed in 1-4 shall have his/her result of the examination nullified and scored zero for the course and be issued a letter of warning.
+2. Any candidate found guilty of the offences 6 and 7 shall have his/her examination result for the course nullified and be suspended for one academic session.
+3. Any candidate found guilty of the offences 5,8,9, and 10 shall have his/her examination result for the course nullified and scored zero and shall in addition be expelled from the University.
+4. A candidate who has been penalized on a previous occasion under 1. above and found guilty again of an offence shall be suspended for one academic session.
+5. A candidate who has been penalized on a previous occasion under 2. above and found guilty again of an offence shall be expelled from the University.
+6. Any staff found guilty of offence 10 and 11 above shall be referred to the appropriate University Committee for disciplinary action.
+Computation of Examination Results
+1. There shall be a departmental panel of examiners to consider all examination results before they are presented to School Board Examiners.
+2. Computation of examination results shall be the responsibility of each Chief Examiner/ Head of Department. Computed results must be taken to the School Board of Examiners for consideration.
+3. The master marks sheets or results must be signed by the Chief Examiner of that department.
+4. The School's Board of Examiners shall take measures to ensure the correctness of all results presented to it before they are passed to the School Board of Studies for consideration and ratification for presentation to Senate.
+Release of Examination Result
+1. The results of each semester examination, signed by the Dean concerned shall be published not later than 24 hours after the meeting of the School's Board of Examiners and shall remain provisional until approved by Senate.
+2. After Senate approval, the result shall be forwarded to the Registrar who shall have the responsibility of informing the students and their sponsors of the result.
+3. The sectional result shall be released to the students before the beginning of the following session.
+4. All amended results executively approved by the Vice-Chancellor shall come before Senate for ratification
+GUIDELINES ON CHANGE OF SCHOOL/DEPARTMENTS
+1. Applications for a change of degree option shall be approved only when there is a strong justification for it. As much as possible students should be required to pursue to the end the course to which they have originally been admitted.
+2. Permission to change to a new degree option shall be strictly subject to there being a vacancy in the class, taking into account the approved student quota for the degree option.
+3. Any change of degree option within the school shall be subject to approval of the Dean of the School and the two Heads of Department concerned.
+4. Any change of School shall be subject to the approval of both the Deans of the present School and of the proposed School.
+5.The Dean of a School shall, for good course and in consultation with the Board of the School, have the right to approve or withdraw his approval of a student's application to transfer from or into the School.
+6. Normally, for a student to change from one School/Department to another he/she should have a minimum Cumulative Grade Point Average (CGPA) of 3.50. This CGPA may be waived for weak students whose cases would be considered on their own merit.
+7. Change of degree option shall not be permitted until the student has spent at least four semesters in the University.
+8. No student will be allowed to change his/her degree option more than once in the University.
+9. No change of degree option shall be allowed beyond six weeks of the commencement of lectures in the first semester of each session.
+10. The Board of Studies of the proposed School concerned shall recommend the change of degree option for the student concerned for the approval of Senate.
+11. Final approval or rejection of student's request to change degree option shall be formally communicated to the affected student by the Registrar.
+UNIT COURSE SYSTEM
+The unit course system is understood to mean a quantitative system of organisation of the curriculum in which subject areas are broken down into unit courses which are examinable and for which students earn credit(s) if passed'. The courses are arranged in progressive order in levels of academic progress, for example, 100 level courses are 101,102 etc., and 200 level courses are 201, 202, etc. The second aspect of the system is that courses are assigned weights referred to as credit units.
+1. The unit of course shall be by the semester, one semester unit being when a class meets one hour every week for one semester or three/four hours every week in the laboratory for one semester or the equivalent in workshop or fields work time.
+The size of course shall, as much as possible be a maximum of three units and its duration shall be one semester except for projects and design courses which may carry more than three units and may last more than one semester.
+2. A core course is one which must be registered for and passed by a student to get the degree and is counted towards the classification of his/her degree.
+3. An elective course is either compulsory or optional. A compulsory elective shall be counted towards the classification of a student's degree. An optional elective is a course that may be taken by the student and may not be counted towards the classification of his/her degree.
+4. A University required course is a compulsory course prescribed by the University, which must be passed before a student can graduate. It would also count towards the classification of the degree.
+5. An audited course is one, which the student attends without writing an examination in it.
+6. Pre-requisite course is a compulsory course prescribed by the University, which must be passed before a student can graduate. It would also count towards the classification of the degree.
+7. Pre-requisite course is one in which the student must pass before proceeding to the higher course.
+8. Co-prerequisite course is one, which may be taken in parallel with the course for which it is specified.
+Students work load
+The maximum numbers of units a student can register for is 24 per Semester. The minimum number of units a student can register foris15 per semester.
+Computation of results
+The following terminologies and abbreviations are commonly used in the computation of Grade Point Average (GPA):
+1. Total Load Units (TLU):  This is the total number of course units carried by a student in a particular semester. It is the summation of the load units on all courses carried during the semester. For example, a student who is taking 6 curses of 3 units each has a TLU of 18 for that semester.
+2. Cumulative Load Units (CLU): This is the summation of Total Load Units over all the semesters from the beginning to date. A student who is prone to repeating courses will finish (if he does not drop out) with a higher CLU than his non-repeating colleagues, and will most likely require a longer time to complete the requirements for the award of degree.
+3. Total Credit Points (TCP): This is the sum of the products of course units and rating in each course, for the entire semester, or period. For example, consider a student who took 5 courses of 3 units each. Suppose the grades he obtained in the four courses were A, B, C, D and E respectively. The TCP of this student is obtained as:-(3x5.0) + (3×4.0) + (3×3.0) + (3×2.0) + (3x1.0) = 15.00+12.00+9.0+6.0+3.0=45.00
+4. Cumulative Credit Point (CCP): This is the summation of Total Credit Points over all the semesters from the beginning to date.
+5. Grade Point Average (GPA): This is the Total Credit Points (TCP) divided by the Total Load Units (TLU). For example, consider the student's scores referred to in number 3 above. His TCP is 42.0 and his TLUis 15. His GPA is therefore 45/15= 3.00. The highest possible GPA that can be earned is 5.0 and that is when a student has earned a grade of "A" in every course during the semester. The lowest GPA obtainable is 0.0.
+6. Cumulative Grade Point Average (CGPA): This is not the summation of GPA's for the semester. Rather, it is the summation of TCP for all semesters to date divided by the summation of TLU for the said semesters. Performance in any semester is reported in grade point average. This is the average of weighted grade points earned in the courses taken during the semester. The grade point average is obtained by multiplying the grade point average in each course by the number of credit units assigned to that course, and then summing these up and dividing by the total number of credit units taken for the semester.
+This is the up-to-date mean of the grade points earned by the students in a programme of study. It is an indication of the student's overall performance at any point in the training programme. To compute the cumulative grade point average, the total of grade points multiplied by the respective credit units for all the semesters are added and then divided by the total number of credit units for all courses registered by the student.
+Probation and withdrawal from the University
+Probation is a status granted to a student whose academic performance falls below an acceptable standard. A student whose cumulative grade point average falls below 1.50 at the end of first session shall be placed on probation during the following session. If he/she then fails to achieve a CGPA of at least 1.50 at the end of that session, he shall be required to withdraw from the University. However, in order to minimize waste of human resources, consideration MAY be given to withdrawal from programme of study and possible transfer to other programmes within the University.
+A student will not be placed on probation until the end of the second semester of the first session; thereafter, it shall be from semester to semester. A student on probation shall not carry more than the minimum load of 15 units for the semester for which he/she is on probation. A student who is unable to get out of probation at the end of the first semester shall be on extended probation till the end of the session, but a student who is out of probation at the end of the first semester shall be allowed to carry a maximum load unit during the following semester.
+Resit examination
+There shall be no resit examination.
+Carryover courses
+All failed courses shall be carried over to the corresponding semester of the following year and must be taken and passed before taking higher courses for which such are pre-requisites.
+Dean'slist
+A student who obtains a GPA of 4.50 and above at the end of any semester will have his name published on Dean's list. Each list is valid for only the one session immediately following the publication of the results and until the publication of the results of the following semester.
+Duration of semester
+Each semester normally consists of 15 weeks or as determined by senate (exclusive of the Christmas and Easter vacations and midsemester breaks), which shall be reserved for teaching and a further two weeks for examination.
+Registration of course examinations and procedure for dropping a course
+Registration for a course at the beginning of a semester automatically means registration for the course and the examination.
+No separate registration for examination shall be carried out. A student who wishes to add or delete a course must do so within six weeks of commencement of lectures in the course by completing the prescribed form obtainable from the Academic Affairs Office.
+Course evaluation
+Assessment of student's achievement shall be continuous. The student shall be periodically informed of his/her standing in the course. Continuous assessment shall be by a combination of the following methods: (a) continuous assessment such as un-announced quizzes; class tests; home-work assignments; or mid-semester tests and at least two continuous assessments shall be given on each course in a semester.
+Final examination for a course shall not normally exceed three (3)hours duration and shall be given only at the times and places established for that purpose by senate or its designated committee.The final examination for each course shall normally be at the end of the semester in which the course is offered. The course grade will be made up of the student's score in the continuous assessment as well as the end of course examination.
+The weights attached to continuous assessment and end of semester examination are 30-40% and 60-70% respectively.
+External Examiner(s) are appointed only in the final year of the undergraduate programme to assess final year courses and projects, and to certify the overall performance of the graduating students as well as the quality of facilities and teaching.
+Examination Malpractice
+A student involved in University examination malpractice or who violates examination regulations shall be referred to the disciplinary committee which will recommend appropriate disciplinary action.
+Procedure for seeking a revision of marked scripts at the end of semester
+1. Applications for revision of marked scripts shall be made by any aggrieved student, irrespective of the grade obtained in the course, on the payment of a prescribed fee.
+2. All applications for revision of marked scripts shall be addressed and forwarded to the Registrar through the Dean.
+3. The receipt of prescribed fee for each course shall accompany the application;
+4. The Registrar shallforward the request to the appropriate Dean. 
+5. The Dean shall appoint a minimum of three independent assessors (internal or external) in consultation with the Head of Department, if need be.
+6. The Dean shall ensure that the marking scheme and model answers originally used are made available to the assessors;
+7. The Dean shall present his report before the Board of Studies and thereafter to Senate for consideration and approval.
+8. (a) Where the student's case is upheld, the application fee shall be  refunded; (b) Where the case is not upheld, the student shall forfeit the fee and shall be warned for making frivolous allegations; 
+9. Where Senate is convinced that the marking-down of a candidate by the lecturer is deliberate, such staff shall be reprimanded.
+Absence from Examination
+A student who is absent from a course examination without a written permission of the Head of Department during or at the end of the semester will receive a grade of 'F'. Permission may be granted only on substantiated, compassionate or medical grounds as approved by senate.
+Carry-over Course Grade
+When a student re-registers for a carry-over course, and takes an examination in the course, he shall be credited with the actual grade scored. Guidelines on Auditing of University Courses course(s) or apply to audit the course(s).
+1. A student shall apply for exemption from University required courses(s) or apply to audit the courses(s).
+2. Such application should be addressed to the Dean of the School and shall be accompanied by the relevant transcript.
+3. Students seeking exemption from the University required course(s) shall be required to sit for the particular examination after having been given the opportunity to audit the course(s)
+4. Such students shall be expected to pass the audited course(s) at formally for the course(s) under normal conditions.
+5. Although the results of the audited courses would form part of the academic record of such students, the result would not be used to determine their class of degree.
+6. Continuous assessment shall be waived in respect of the examination while auditing a University required course, and that Pass in the written examination should be sufficient.
+Certificate
+The degree certificate shall be signed by the Vice-Chancellor and the Registrar.
+Academic Advisory System
+Course advisers are appointed for each level of the programme. They are responsible for counselling, registering the students and overseeing their overall well-being while in the department. Every student shall be assigned an academic adviser at the beginning of each session by the Head of Department. The adviser shall assist the student to acquaint himself/herself with School/Department and University rules and regulations from time to time.
+OTHER UNIVERSITY SERVICES AVAILABLE TO STUDENTS
+1. The University Health Centre provides preventive and curative Health care to all students of the Federal University of Technology, Akure, Nigeria.
+2. Library services are available to the students upon registration with the University Library.
+

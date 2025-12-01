@@ -1,0 +1,148 @@
+(1)
+Credit Units
+(ii)
+Percentile
+Scores
+(iii)
+Letter
+Grade
+ (iv)
+Grade point
+ (v)
+Grade Point
+Average
+ (vi)
+Cumulative
+Grade Point
+Average
+(vii)
+Class of 
+Degree
+Vary according tocontact hoursassigned to each course per week per semester and according to work load carried by
+student
+70-100 
+60-69
+50-59 
+45-49 
+0-44
+A
+B
+C
+D
+F
+5
+4
+3
+2
+0
+Derived by Multiplying(i) and (iv)
+and dividing
+by total
+Credit Units
+4.50-5.00 
+3.50-4.49 
+2.40-3.49 
+1.50-2.39
+First Class
+2nd Class Upper 2nd Class Lower
+Third Class
+
+6. COURSE OUTLINE
+All the courses indicated in each of the tables given below are core and required for B.Tech degree in Computer Science. In addition to the core and required courses, students have the option of registering for elective courses run by other Departments of the University. The industrial training for undergraduate students takes place at the Second Semester of their 400 Level.
+100 LEVEL FIRST SEMESTER 
+Course Code
+Status
+Course Title
+Contact Hours
+Unit (s)
+
+
+
+L
+T
+P
+
+BIO 101
+C
+General Biology I
+2
+1
+0
+3
+BIO 103
+C
+General Biology Practical I
+0
+0
+3
+1
+CSC 101
+C
+Introduction to Computer Science
+1
+0
+3
+2
+CHE 101
+C
+General Chemistry I
+2
+1
+0
+3
+CHE 103
+C
+Experimental Chemistry I
+0
+0
+3
+1
+GNS 101
+R
+Use of English I
+1
+1
+0
+2
+GNS 103
+R
+Information Literacy
+1
+0
+0
+1
+MEE 101
+R
+Engineering Drawing
+1
+0
+6
+3
+MTS 101
+C
+Introductory Mathematics I
+2
+1
+0
+3
+PHY 101
+C
+General Physics I
+2
+1
+0
+3
+PHY 107
+C
+General Physics Laboratory I
+0
+0
+3
+1
+
+TOTAL
+
+
+
+
+23
