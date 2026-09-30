@@ -1,2 +1,16 @@
 .env
 *.env
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+data/
+.files/
+.playwright-mcp/
+.pytest_cache/
+.claude/settings.local.json
+/*.png
+
+# Personal agent constitution — kept local, not part of the app
+CLAUDE.md
+agent-development-kit.md
