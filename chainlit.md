@@ -21,12 +21,13 @@ Welcome to **SOC Buddy**, your friendly and intelligent assistant for the School
 - **Learn 📘**: Participate in interactive learning sessions and quizzes to improve your understanding of computing.
 
 ## Meet the Devolper🧩
-- AGBA DEV VENOM
+
+- Olusola Iyanuoluwa Samuel Junior, a graduate from the department of Software Engineering.
 
 ## Support 🤝
 
 If you encounter any issues or have any questions, please open an issue on GitHub or contact us at [support@socbuddy.com](mailto:support@socbuddy.com).
 
-----------
+---
 
 #### Thank you for using SOC Buddy! We hope it becomes an invaluable resource in your academic journey at the School of Computing, FUTA. 🎓💻
