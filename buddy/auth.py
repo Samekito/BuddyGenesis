@@ -13,7 +13,8 @@ def is_valid_password_login(username: str, password: str, settings: Settings) ->
     if not settings.admin_username or not settings.admin_password:
         return False
     # compare_digest avoids leaking how many leading characters matched via response timing.
-    username_ok = hmac.compare_digest(username.encode(), settings.admin_username.encode())
+    # Usernames ignore case ("Admin" == "admin"), like most logins; passwords never do.
+    username_ok = hmac.compare_digest(username.strip().casefold().encode(), settings.admin_username.casefold().encode())
     password_ok = hmac.compare_digest(password.encode(), settings.admin_password.encode())
     return username_ok and password_ok
 
