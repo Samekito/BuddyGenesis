@@ -43,3 +43,12 @@ def test_google_user_without_email_is_rejected():
 
 def test_google_user_with_unverified_email_is_rejected():
     assert google_user_identifier({"email": "ada@gmail.com", "verified_email": False}) is None
+
+
+def test_username_is_case_insensitive():
+    assert is_valid_password_login("Admin", "s3cret!", SETTINGS)
+    assert is_valid_password_login("ADMIN", "s3cret!", SETTINGS)
+
+
+def test_password_stays_case_sensitive():
+    assert not is_valid_password_login("admin", "S3CRET!", SETTINGS)

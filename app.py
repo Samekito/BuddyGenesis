@@ -55,7 +55,9 @@ def get_data_layer():
 def password_login(username: str, password: str) -> Optional[cl.User]:
     if not is_valid_password_login(username, password, settings):
         return None
-    return cl.User(identifier=username, metadata={"role": "admin", "provider": "credentials", "name": username})
+    # The configured name, not what was typed: "Admin" and "admin" must share one account and history.
+    admin = settings.admin_username
+    return cl.User(identifier=admin, metadata={"role": "admin", "provider": "credentials", "name": admin})
 
 
 # Chainlit refuses to start if an oauth callback exists without a configured provider.

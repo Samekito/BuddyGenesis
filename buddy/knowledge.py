@@ -154,6 +154,12 @@ def chunk_blocks(blocks: list[str], source: str) -> list[Chunk]:
             current.clear()
 
     for block in blocks:
+        if _is_section_heading(block):
+            # A chunk never spans two sections, so its label always names the section it holds.
+            # Without this, course descriptions inherited "500 LEVEL FIRST SEMESTER" from the last table.
+            flush()
+            current_heading = block
+            continue
         for piece in _split_oversized(block):
             size_so_far = sum(len(line) + 1 for line in current)
             if current and size_so_far + len(piece) > MAX_CHUNK_CHARS:
@@ -161,10 +167,20 @@ def chunk_blocks(blocks: list[str], source: str) -> list[Chunk]:
             if not current:
                 current.append(source if not current_heading else f"{source} — {current_heading}")
             current.append(piece)
-        if len(block) <= MAX_HEADING_CHARS and "|" not in block:
+        if _is_heading(block):
             current_heading = block
     flush()
     return chunks
+
+
+def _is_heading(block: str) -> bool:
+    # Course title lines ("BIO 103 General Biology (1 Unit)") are short too, but label one course, not a section.
+    return len(block) <= MAX_HEADING_CHARS and "|" not in block and not HANDBOOK_COURSE_CODE.match(block)
+
+
+def _is_section_heading(block: str) -> bool:
+    """All-caps headings ("200 LEVEL FIRST SEMESTER", "COURSE SYNOPSIS") open a new section of the handbook."""
+    return _is_heading(block) and block.isupper()
 
 
 def _plain(text: str) -> str:

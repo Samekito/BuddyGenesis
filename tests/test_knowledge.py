@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 import pytest
@@ -179,3 +180,40 @@ def test_level_sections_accept_typographic_hyphens_from_the_rewrite_model():
     sections = kb.level_sections("What are the 100‑level first‑semester courses in Software Engineering?")
 
     assert sections == LEVEL_TABLES[:2]
+
+
+SYNOPSIS_BLOCKS = [
+    "500 LEVEL FIRST SEMESTER",
+    "Course Code | Status | Course Title | Unit (s)\nCSC 501 | C | Project | 6",
+    "COURSE SYNOPSIS",
+    "CSC101-Introduction to Computer Science (2units)",
+    "History of computers; functional components of a computer. " * 5,
+]
+
+
+def test_new_section_starts_a_new_chunk_so_labels_never_go_stale():
+    # Regression: the CSC 101 description was labelled "500 LEVEL FIRST SEMESTER" because its chunk
+    # started at the last course table, and the bot then cited "the 500-level table" as the source.
+    chunks = chunk_blocks(SYNOPSIS_BLOCKS, "Dept")
+
+    description = next(chunk for chunk in chunks if "CSC101-Introduction" in chunk.text)
+
+    assert "LEVEL" not in description.text
+    assert description.text.startswith("Dept — COURSE SYNOPSIS")
+
+
+def test_course_title_lines_are_not_treated_as_section_headings():
+    blocks = ["COURSE DESCRIPTIONS", "BIO 103 General Biology 1 Practical (1 Unit)", "Use of the microscope. " * 80]
+
+    chunks = chunk_blocks(blocks, "Dept")
+
+    assert all(chunk.text.startswith("Dept — COURSE DESCRIPTIONS") for chunk in chunks)
+
+
+def test_real_course_descriptions_are_never_labelled_with_a_course_table_level():
+    kb = KnowledgeBase.from_directory(PROJECT_ROOT / "knowledge_base")
+
+    descriptions = [chunk for chunk in kb.chunks if re.search(r"CSC ?101\s*[-–]\s*Introduction", chunk.text)]
+
+    assert descriptions
+    assert not any("LEVEL" in chunk.text.split("\n")[0] for chunk in descriptions)
