@@ -1,0 +1,28 @@
+# Render Blueprint — free web service (512 MB RAM, sleeps after 15 min idle, ~1 min cold start).
+# Render's disk is wiped on every spin-down, so DATABASE_URL must point at an external free Postgres (e.g. Neon).
+services:
+  - name: soc-buddy
+    type: web
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: chainlit run app.py --headless --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: CHAINLIT_AUTH_SECRET
+        generateValue: true
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: BUDDY_ADMIN_USERNAME
+        sync: false
+      - key: BUDDY_ADMIN_PASSWORD
+        sync: false
+      - key: OAUTH_GOOGLE_CLIENT_ID
+        sync: false
+      - key: OAUTH_GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: CHAINLIT_URL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
