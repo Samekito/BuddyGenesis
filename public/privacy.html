@@ -51,12 +51,23 @@
   <ul>
     <li><strong>Google account details</strong>, if you sign in with Google: your name, email address and
     profile picture link, as provided by Google. Your email address identifies your account.</li>
+    <li><strong>Sign-up details</strong>, if you create an account with an email and password: your name,
+    email address and a securely hashed form of your password (the password itself is never stored). This
+    account is separate from any Google sign-in that uses the same email address.</li>
+    <li><strong>Account emails</strong>: to confirm a new account or reset a password, SOC Buddy emails a
+    one-time link to the address given. Only a scrambled (hashed) form of each link is stored, and links
+    expire after 24 hours (confirmation) or one hour (password reset). SOC Buddy sends no newsletters or
+    marketing.</li>
     <li><strong>Your conversations</strong>: the questions you ask, SOC Buddy's answers, conversation titles,
     timestamps, and any thumbs-up/down feedback you give. These are saved so you can return to past chats.</li>
-    <li><strong>A login cookie</strong> that keeps you signed in. SOC Buddy uses no advertising or analytics
-    cookies.</li>
+    <li><strong>A login cookie</strong> that keeps you signed in for up to one day. SOC Buddy uses no advertising
+    or analytics cookies.</li>
     <li><strong>Technical logs</strong>: our hosting provider may record standard request information such as
     IP addresses and times. SOC Buddy's own logs do not record the content of your messages.</li>
+    <li><strong>Abuse protection</strong>: to limit repeated sign-in and sign-up attempts, SOC Buddy briefly
+    keeps your IP address and the email you sign in with in memory only (never on disk). They are
+    discarded soon after the limit periods (up to one hour) end, and whenever the app restarts.
+    It also counts how many questions each account asks per day.</li>
   </ul>
 
   <h2>How we use it</h2>
@@ -74,8 +85,10 @@
   <ul>
     <li><strong>Groq</strong> (<a href="https://groq.com">groq.com</a>): runs the AI model. Receives your
     questions, recent conversation messages and handbook passages to produce answers.</li>
-    <li><strong>Neon</strong> (<a href="https://neon.tech">neon.tech</a>): database that stores your account
+    <li><strong>Neon</strong> (<a href="https://neon.com">neon.com</a>): database that stores your account
     details and chat history, on servers in the United States.</li>
+    <li><strong>Brevo</strong> (<a href="https://www.brevo.com">brevo.com</a>): sends account emails (sign-up
+    confirmation and password reset). Receives your email address, your name and the email's content.</li>
     <li><strong>Render</strong> (<a href="https://render.com">render.com</a>): hosts the application, on servers in
     the United States.</li>
     <li><strong>Google</strong>: provides "Sign in with Google". SOC Buddy only receives the account details listed
