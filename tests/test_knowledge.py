@@ -7,9 +7,11 @@ from buddy.config import PROJECT_ROOT
 from buddy.knowledge import (
     DEPARTMENT_NAMES,
     MAX_CHUNK_CHARS,
+    MAX_REFERENCE_CHARS,
     Chunk,
     KnowledgeBase,
     _is_skipped_file,
+    _within_budget,
     chunk_blocks,
     tokenize,
 )
@@ -217,3 +219,18 @@ def test_real_course_descriptions_are_never_labelled_with_a_course_table_level()
 
     assert descriptions
     assert not any("LEVEL" in chunk.text.split("\n")[0] for chunk in descriptions)
+
+
+def test_reference_budget_keeps_the_most_important_chunks_in_order():
+    chunks = [Chunk("a", "x" * 600), Chunk("b", "x" * 600), Chunk("c", "x" * 300)]
+
+    assert [chunk.source for chunk in _within_budget(chunks, budget=1000)] == ["a", "c"]
+
+
+def test_real_list_question_fits_the_reference_budget_whole():
+    # Every 100 level table across all handbooks must still reach the model uncut.
+    knowledge_base = KnowledgeBase.from_directory(PROJECT_ROOT / "knowledge_base")
+    sections = knowledge_base.level_sections("what are the 100 level courses")
+
+    assert sum(len(chunk.text) for chunk in sections) <= MAX_REFERENCE_CHARS
+    assert all(section in knowledge_base.retrieve("what are the 100 level courses") for section in sections)

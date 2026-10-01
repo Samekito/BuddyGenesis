@@ -7,6 +7,9 @@ services:
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: chainlit run app.py --headless --host 0.0.0.0 --port $PORT
+    # Liveness only (Chainlit's built-in route). /ready also checks the database; point an uptime
+    # monitor at it instead, so a database outage does not make Render restart a healthy app.
+    healthCheckPath: /health
     envVars:
       - key: CHAINLIT_AUTH_SECRET
         generateValue: true
@@ -26,3 +29,9 @@ services:
         sync: false
       - key: DATABASE_URL
         sync: false
+      - key: BREVO_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: EMAIL_FROM_NAME
+        value: SOC Buddy

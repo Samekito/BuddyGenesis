@@ -1,13 +1,28 @@
 import sqlite3
+import ssl
 
 import pytest
+from sqlalchemy.ext.asyncio import create_async_engine
 
 from chainlit.element import ElementDict
 from chainlit.step import StepDict
 
-from buddy.history import SCHEMA_DIR, create_data_layer, ensure_schema, normalize_database_url
+from buddy import history
+from buddy.history import (
+    SCHEMA_DIR,
+    connect_args,
+    create_data_layer,
+    database_reachable,
+    migrate,
+    normalize_database_url,
+)
 
-EXPECTED_TABLES = {"users", "threads", "steps", "elements", "feedbacks"}
+EXPECTED_TABLES = {"users", "threads", "steps", "elements", "feedbacks", "accounts", "email_tokens", "schema_migrations"}
+ALL_MIGRATIONS = [1, 2]
+
+
+def _sqlite_engine(database_file):
+    return create_async_engine(f"sqlite+aiosqlite:///{database_file.as_posix()}")
 
 
 def test_neon_style_url_gets_asyncpg_driver_and_ssl():
@@ -17,11 +32,25 @@ def test_neon_style_url_gets_asyncpg_driver_and_ssl():
     assert needs_ssl
 
 
-def test_postgres_url_without_sslmode_does_not_force_ssl():
-    url, needs_ssl = normalize_database_url("postgres://u:p@localhost:5432/buddy")
+def test_postgres_url_without_sslmode_still_uses_tls():
+    url, needs_tls = normalize_database_url("postgres://u:p@db.example.com:5432/buddy")
 
-    assert url == "postgresql+asyncpg://u:p@localhost:5432/buddy"
-    assert not needs_ssl
+    assert url == "postgresql+asyncpg://u:p@db.example.com:5432/buddy"
+    assert needs_tls
+
+
+def test_postgres_tls_can_be_switched_off_explicitly_for_local_servers():
+    assert not normalize_database_url("postgres://u:p@localhost/buddy?sslmode=disable")[1]
+
+
+def test_tls_connections_verify_the_server_certificate_and_hostname():
+    context = connect_args(needs_tls=True)["ssl"]
+
+    assert context.verify_mode == ssl.CERT_REQUIRED and context.check_hostname
+
+
+def test_non_tls_connections_get_no_ssl_argument():
+    assert connect_args(needs_tls=False) == {}
 
 
 def test_sqlite_url_is_left_alone():
@@ -43,25 +72,91 @@ def test_data_layer_keeps_message_text_out_of_error_logs(tmp_path):
     assert data_layer.engine.sync_engine.hide_parameters
 
 
-async def test_ensure_schema_creates_missing_folder_and_all_tables(tmp_path):
+async def test_data_layer_creates_the_missing_database_folder(tmp_path):
     database_file = tmp_path / "nested" / "history.db"
 
-    await ensure_schema(f"sqlite+aiosqlite:///{database_file.as_posix()}")
+    data_layer = create_data_layer(f"sqlite+aiosqlite:///{database_file.as_posix()}")
+    await migrate(data_layer.engine)
+    await data_layer.engine.dispose()
 
-    tables = {row[0] for row in sqlite3.connect(database_file).execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    assert database_file.exists()
+
+
+async def test_migrate_creates_all_tables_and_records_each_migration(tmp_path):
+    engine = _sqlite_engine(tmp_path / "history.db")
+
+    applied = await migrate(engine)
+    await engine.dispose()
+
+    tables = {row[0] for row in sqlite3.connect(tmp_path / "history.db").execute("SELECT name FROM sqlite_master WHERE type='table'")}
     assert EXPECTED_TABLES <= tables
+    assert applied == ALL_MIGRATIONS
 
 
-async def test_ensure_schema_is_idempotent(tmp_path):
-    url = f"sqlite+aiosqlite:///{(tmp_path / 'history.db').as_posix()}"
+async def test_migrate_applies_nothing_the_second_time(tmp_path):
+    engine = _sqlite_engine(tmp_path / "history.db")
 
-    await ensure_schema(url)
-    await ensure_schema(url)
+    await migrate(engine)
+    applied_again = await migrate(engine)
+    await engine.dispose()
+
+    assert applied_again == []
+
+
+async def test_migrate_adopts_a_database_created_before_migrations_existed(tmp_path):
+    # Databases in use today were built by the old unversioned schema file; 001 must apply cleanly on top.
+    sqlite3.connect(tmp_path / "history.db").executescript((SCHEMA_DIR / "sqlite" / "001_initial.sql").read_text())
+    engine = _sqlite_engine(tmp_path / "history.db")
+
+    applied = await migrate(engine)
+    await engine.dispose()
+
+    assert applied == ALL_MIGRATIONS
+
+
+async def test_new_migration_files_are_applied_in_number_order(tmp_path, monkeypatch):
+    schema_dir = tmp_path / "schema"
+    (schema_dir / "sqlite").mkdir(parents=True)
+    (schema_dir / "sqlite" / "002_second.sql").write_text("CREATE TABLE second (id INTEGER REFERENCES first(id))")
+    (schema_dir / "sqlite" / "001_first.sql").write_text("CREATE TABLE first (id INTEGER PRIMARY KEY)")
+    monkeypatch.setattr(history, "SCHEMA_DIR", schema_dir)
+    engine = _sqlite_engine(tmp_path / "history.db")
+
+    applied = await migrate(engine)
+    await engine.dispose()
+
+    assert applied == [1, 2]
+
+
+async def test_badly_named_migration_file_is_refused(tmp_path, monkeypatch):
+    (tmp_path / "sqlite").mkdir()
+    (tmp_path / "sqlite" / "add_column.sql").write_text("SELECT 1")
+    monkeypatch.setattr(history, "SCHEMA_DIR", tmp_path)
+    engine = _sqlite_engine(tmp_path / "history.db")
+
+    with pytest.raises(ValueError, match="NNN_description"):
+        await migrate(engine)
+    await engine.dispose()
+
+
+async def test_reachable_database_passes_the_ping(tmp_path):
+    engine = _sqlite_engine(tmp_path / "history.db")
+
+    assert await database_reachable(engine)
+    await engine.dispose()
+
+
+async def test_unreachable_database_fails_the_ping(tmp_path):
+    engine = _sqlite_engine(tmp_path / "missing-folder" / "history.db")
+
+    assert not await database_reachable(engine)
+    await engine.dispose()
 
 
 def _schema_columns(table: str) -> set[str]:
     connection = sqlite3.connect(":memory:")
-    connection.executescript((SCHEMA_DIR / "sqlite.sql").read_text())
+    for migration_file in sorted((SCHEMA_DIR / "sqlite").glob("*.sql")):
+        connection.executescript(migration_file.read_text())
     return {row[1] for row in connection.execute(f"PRAGMA table_info({table})")}
 
 

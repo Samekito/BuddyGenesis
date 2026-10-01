@@ -37,6 +37,11 @@ MAX_HEADING_CHARS = 80
 # 8 chunks is ~3K tokens per request, well inside Groq's free-tier limits.
 SEARCH_RESULTS = 8
 
+# Hard cap on the reference text sent per question (~6K tokens). The largest real answer today,
+# every 100 level table across five handbooks, is ~16.5K chars; the cap only stops a future,
+# bigger handbook from pushing requests past Groq's free-tier token limits.
+MAX_REFERENCE_CHARS = 24_000
+
 # \s, not " ": LLM-written text often puts a narrow no-break space (U+202F) inside "CSC 101".
 COURSE_CODE = re.compile(r"\b([a-z]{3})\s*(\d{3})\b")
 HANDBOOK_COURSE_CODE = re.compile(r"\b([A-Z]{3})\s*(\d{3})\b")
@@ -93,7 +98,7 @@ class KnowledgeBase:
     def retrieve(self, query: str) -> list[Chunk]:
         """What the model is shown: every course-table section the question names, then the best search hits."""
         sections = self.level_sections(query)
-        return sections + [chunk for chunk in self.search(query) if chunk not in sections]
+        return _within_budget(sections + [chunk for chunk in self.search(query) if chunk not in sections])
 
     def level_sections(self, query: str) -> list[Chunk]:
         """All chunks of the "N00 LEVEL FIRST/SECOND SEMESTER" tables a question asks about.
@@ -248,6 +253,16 @@ def _table_to_text(table: Table) -> str:
         if cells:
             rows.append(" | ".join(cells))
     return "\n".join(rows)
+
+
+def _within_budget(chunks: list[Chunk], budget: int = MAX_REFERENCE_CHARS) -> list[Chunk]:
+    # Chunks arrive most-important first; later ones that no longer fit are dropped.
+    kept, used = [], 0
+    for chunk in chunks:
+        if used + len(chunk.text) <= budget:
+            kept.append(chunk)
+            used += len(chunk.text)
+    return kept
 
 
 def _split_oversized(block: str) -> list[str]:

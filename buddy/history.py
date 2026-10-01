@@ -1,32 +1,48 @@
-"""Chat history persistence via Chainlit's SQLAlchemyDataLayer (replaces the old Literal AI service).
+"""Chat history persistence via Chainlit's SQLAlchemyDataLayer, and the database schema migrations.
 
 Consumed by app.py. DATABASE_URL selects SQLite (local dev) or Postgres (hosted, e.g. free Neon).
+The data layer's engine is the app's only database engine; buddy/accounts.py shares it.
 """
 
+import asyncio
 import json
+import logging
+import re
 import sqlite3
+import ssl
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 
 from chainlit.data.sql_alchemy import SQLAlchemyDataLayer
 from sqlalchemy import text
-from sqlalchemy.ext.asyncio import create_async_engine
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.ext.asyncio import AsyncEngine
 
 SCHEMA_DIR = Path(__file__).parent / "schema"
+# buddy/schema/<dialect>/NNN_description.sql, applied in NNN order and recorded once applied.
+MIGRATION_FILE = re.compile(r"^(\d+)_\w+\.sql$")
+MIGRATIONS_TABLE = 'CREATE TABLE IF NOT EXISTS schema_migrations ("version" INTEGER PRIMARY KEY, "appliedAt" TEXT NOT NULL)'
+# Long enough for a free Neon database to wake from suspend.
+PING_TIMEOUT_SECONDS = 10
+# What a database failure can look like: asyncpg raises plain OSErrors (refused connection,
+# DNS, timeout, TLS certificate) while connecting, which SQLAlchemy does not wrap.
+DATABASE_ERRORS = (SQLAlchemyError, OSError)
+
+logger = logging.getLogger(__name__)
 
 
 def normalize_database_url(url: str) -> tuple[str, bool]:
-    """Returns (async SQLAlchemy URL, whether SSL is required).
+    """Returns (async SQLAlchemy URL, whether to use TLS).
 
     Hosted Postgres providers hand out `postgresql://...?sslmode=require`; asyncpg needs the
-    `+asyncpg` driver prefix and rejects `sslmode`, so SSL is passed separately instead.
-    Note: Chainlit's ssl_require skips certificate verification, so `verify-full` is downgraded
-    to encrypted-but-unverified — acceptable for Neon, which is reached over the public internet anyway.
+    `+asyncpg` driver prefix and rejects `sslmode`, so TLS is configured separately instead.
+    Postgres always uses TLS unless the URL says `sslmode=disable` (e.g. a local dev server).
     """
     parts = urlsplit(url)
     if parts.scheme in ("postgres", "postgresql", "postgresql+asyncpg"):
-        needs_ssl = "sslmode=require" in parts.query or "sslmode=verify" in parts.query
-        return urlunsplit(("postgresql+asyncpg", parts.netloc, parts.path, "", "")), needs_ssl
+        needs_tls = "sslmode=disable" not in parts.query
+        return urlunsplit(("postgresql+asyncpg", parts.netloc, parts.path, "", "")), needs_tls
     if parts.scheme in ("sqlite", "sqlite+aiosqlite"):
         return "sqlite+aiosqlite" + url[len(parts.scheme):], False
     raise ValueError(f"Unsupported DATABASE_URL scheme '{parts.scheme}' — use sqlite or postgresql.")
@@ -36,33 +52,72 @@ def is_sqlite(url: str) -> bool:
     return url.startswith("sqlite")
 
 
+def connect_args(needs_tls: bool) -> dict:
+    # A default context verifies the server's certificate and hostname. Chainlit's own
+    # ssl_require switch skips both, which would leave the connection open to interception.
+    return {"ssl": ssl.create_default_context()} if needs_tls else {}
+
+
 def create_data_layer(database_url: str) -> SQLAlchemyDataLayer:
-    url, needs_ssl = normalize_database_url(database_url)
+    url, needs_tls = normalize_database_url(database_url)
     if is_sqlite(url):
         _prepare_sqlite(url)
-    data_layer = SQLAlchemyDataLayer(conninfo=url, ssl_require=needs_ssl)
+    data_layer = SQLAlchemyDataLayer(conninfo=url, connect_args=connect_args(needs_tls))
     # Chainlit logs failed writes with the SQL error text, which by default includes the bound
-    # parameters — i.e. full user messages and answers. Keep them out of the logs.
+    # parameters — i.e. full user messages, answers and password hashes. Keep them out of the logs.
     data_layer.engine.sync_engine.hide_parameters = True
     return data_layer
 
 
-async def ensure_schema(database_url: str) -> None:
-    """Creates the history tables if missing. Every statement is IF NOT EXISTS, so reruns are no-ops."""
-    url, needs_ssl = normalize_database_url(database_url)
-    if is_sqlite(url):
-        # Runs at app startup, before Chainlit first builds the data layer, so the folder may not exist yet.
-        _prepare_sqlite(url)
-    schema_file = SCHEMA_DIR / ("sqlite.sql" if is_sqlite(url) else "postgres.sql")
-    statements = [s.strip() for s in schema_file.read_text().split(";") if s.strip()]
-    connect_args = {"ssl": "require"} if needs_ssl else {}
-    engine = create_async_engine(url, connect_args=connect_args, hide_parameters=True)
-    try:
+async def migrate(engine: AsyncEngine) -> list[int]:
+    """Applies the migrations not yet recorded in schema_migrations; returns the versions it applied.
+
+    Each migration commits together with its record. Write migrations so rerunning one is
+    harmless (IF NOT EXISTS etc.): SQLite commits DDL as it goes, so a failure can leave one half-applied.
+    """
+    async with engine.begin() as connection:
+        await connection.execute(text(MIGRATIONS_TABLE))
+        applied = set((await connection.execute(text('SELECT "version" FROM schema_migrations'))).scalars())
+    newly_applied = []
+    for version, migration_file in _migration_files("sqlite" if engine.dialect.name == "sqlite" else "postgres"):
+        if version in applied:
+            continue
         async with engine.begin() as connection:
-            for statement in statements:
+            for statement in _statements(migration_file):
                 await connection.execute(text(statement))
-    finally:
-        await engine.dispose()
+            await connection.execute(
+                text('INSERT INTO schema_migrations ("version", "appliedAt") VALUES (:version, :applied_at)'),
+                {"version": version, "applied_at": datetime.now(timezone.utc).isoformat()},
+            )
+        newly_applied.append(version)
+    return newly_applied
+
+
+async def database_reachable(engine: AsyncEngine) -> bool:
+    try:
+        async with asyncio.timeout(PING_TIMEOUT_SECONDS):
+            async with engine.connect() as connection:
+                await connection.execute(text("SELECT 1"))
+    except DATABASE_ERRORS as error:
+        # The type is enough to act on; the message can hold the host name.
+        logger.warning("Database ping failed: %s", type(error).__name__, extra={"event": "database_unreachable"})
+        return False
+    return True
+
+
+def _migration_files(dialect: str) -> list[tuple[int, Path]]:
+    files = []
+    for path in (SCHEMA_DIR / dialect).glob("*.sql"):
+        match = MIGRATION_FILE.match(path.name)
+        if match is None:
+            raise ValueError(f"Migration file '{path.name}' must be named NNN_description.sql.")
+        files.append((int(match.group(1)), path))
+    return sorted(files)
+
+
+def _statements(migration_file: Path) -> list[str]:
+    # Plain ";" splitting: migrations must not put a ";" inside a string literal.
+    return [statement.strip() for statement in migration_file.read_text(encoding="utf-8").split(";") if statement.strip()]
 
 
 def _prepare_sqlite(url: str) -> None:
