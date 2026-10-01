@@ -1,4 +1,5 @@
--- SQLite port of postgres.sql: UUID/JSONB/arrays stored as TEXT, booleans as INTEGER.
+-- SQLite port of postgres/001_initial.sql: UUID/JSONB/arrays stored as TEXT, booleans as INTEGER.
+-- IF NOT EXISTS throughout: databases created before numbered migrations already hold these tables.
 CREATE TABLE IF NOT EXISTS users (
     "id" TEXT PRIMARY KEY,
     "identifier" TEXT NOT NULL UNIQUE,
@@ -73,4 +74,12 @@ CREATE TABLE IF NOT EXISTS feedbacks (
     "value" INTEGER NOT NULL,
     "comment" TEXT,
     FOREIGN KEY ("threadId") REFERENCES threads("id") ON DELETE CASCADE
+);
+
+-- Self-service email + password accounts (buddy/accounts.py). Not a Chainlit table.
+CREATE TABLE IF NOT EXISTS accounts (
+    "email" TEXT PRIMARY KEY,
+    "name" TEXT NOT NULL,
+    "passwordHash" TEXT NOT NULL,
+    "createdAt" TEXT NOT NULL
 );

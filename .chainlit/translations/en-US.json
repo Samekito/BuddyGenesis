@@ -38,6 +38,8 @@
             },
             "errors": {
                 "default": "Unable to sign in",
+                "toomanysignins": "Too many sign-in attempts. Please wait a few minutes and try again.",
+                "signinunavailable": "Sign-in is unavailable right now. Please try again later.",
                 "signin": "Try signing in with a different account",
                 "oauthSignin": "Try signing in with a different account",
                 "redirectUriMismatch": "The redirect URI is not matching the oauth app configuration",

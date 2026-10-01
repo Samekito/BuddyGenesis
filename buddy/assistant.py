@@ -3,6 +3,7 @@
 Consumed by app.py. The only module that talks to the LLM (CLAUDE.md architecture rule 5).
 """
 
+import json
 import logging
 from collections.abc import AsyncIterator
 
@@ -18,6 +19,17 @@ HISTORY_MESSAGES = 4
 
 # Low but non-zero: answers must stay faithful to the handbook text, and the original used 0.
 TEMPERATURE = 0.2
+
+# Caps what one reply can spend of the shared free quota. gpt-oss counts its hidden reasoning
+# against this too, so it is set well above the longest real answer (a full level's course table).
+ANSWER_MAX_TOKENS = 4096
+REWRITE_MAX_TOKENS = 512
+# Only these models accept `reasoning_effort`; any other model rejects the whole request.
+REASONING_EFFORT_MODEL_PREFIXES = ("openai/gpt-oss",)
+
+# Set in a failed reply's metadata. The reply is still shown and saved with the thread, so this
+# is what keeps its error text out of the history the model sees, now and after a resume.
+FAILED_REPLY_FLAG = "failedReply"
 
 SYSTEM_PROMPT = """You are SOC Buddy, a helpful virtual assistant for the School of Computing at the \
 Federal University of Technology Akure (FUTA), Nigeria. The School has five departments: Computer \
@@ -82,8 +94,8 @@ async def standalone_question(client: groq.AsyncGroq, model: str, question: str,
                 {"role": "user", "content": f"Conversation:\n{transcript}\n\nLatest message: {question}"},
             ],
             temperature=0,
-            # A rewrite needs no deliberation; low effort keeps the extra call to ~1-2 s.
-            reasoning_effort="low",
+            max_completion_tokens=REWRITE_MAX_TOKENS,
+            **_low_reasoning_effort(model),
         )
     except groq.APIError as error:
         logger.warning("Follow-up rewrite failed, searching with the raw question: %s", type(error).__name__)
@@ -119,7 +131,7 @@ async def stream_answer(client: groq.AsyncGroq, model: str, messages: list[dict]
     """Yields answer tokens. Raises AnswerFailed (with a user-friendly reply) on API failure."""
     try:
         stream = await client.chat.completions.create(
-            model=model, messages=messages, temperature=TEMPERATURE, stream=True
+            model=model, messages=messages, temperature=TEMPERATURE, max_completion_tokens=ANSWER_MAX_TOKENS, stream=True
         )
         async for chunk in stream:
             token = chunk.choices[0].delta.content if chunk.choices else None
@@ -127,7 +139,7 @@ async def stream_answer(client: groq.AsyncGroq, model: str, messages: list[dict]
                 yield token
     except groq.APIError as error:
         # Log the error type only; the message can echo request content.
-        logger.error("Groq request failed: %s", type(error).__name__)
+        logger.error("Groq request failed: %s", type(error).__name__, extra={"event": "groq_error"})
         reply = next(
             (reply for error_type, reply in FALLBACK_REPLIES.items() if isinstance(error, error_type)),
             GENERIC_FAILURE_REPLY,
@@ -136,18 +148,34 @@ async def stream_answer(client: groq.AsyncGroq, model: str, messages: list[dict]
 
 
 def history_from_steps(steps: list[dict]) -> list[dict]:
-    """Rebuilds conversation history from a resumed Chainlit thread's steps (oldest first).
+    """Rebuilds conversation history from Chainlit step dicts (oldest first).
 
-    Assistant messages before the first user message are the greeting, which a fresh chat never
-    puts in history either, so they are dropped to keep resumed and fresh chats identical.
+    Assistant messages before the first user message are the greeting, which is not part of the
+    conversation. Failed replies are dropped so the model never sees "please try again" as its own answer.
     """
     roles = {"user_message": "user", "assistant_message": "assistant"}
     history: list[dict] = []
     for step in steps:
         role = roles.get(step.get("type"))
-        if role is None or not step.get("output"):
+        if role is None or not step.get("output") or _step_metadata(step).get(FAILED_REPLY_FLAG):
             continue
         if role == "assistant" and not history:
             continue
         history.append({"role": role, "content": step["output"]})
     return history[-HISTORY_MESSAGES:]
+
+
+def _low_reasoning_effort(model: str) -> dict:
+    # A rewrite needs no deliberation; low effort keeps the extra call to ~1-2 s.
+    return {"reasoning_effort": "low"} if model.startswith(REASONING_EFFORT_MODEL_PREFIXES) else {}
+
+
+def _step_metadata(step: dict) -> dict:
+    # Live messages carry a dict; steps read back from the database carry the stored JSON text.
+    metadata = step.get("metadata") or {}
+    if isinstance(metadata, str):
+        try:
+            metadata = json.loads(metadata)
+        except json.JSONDecodeError:
+            return {}
+    return metadata if isinstance(metadata, dict) else {}

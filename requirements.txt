@@ -1,5 +1,9 @@
+# Upgrade chainlit deliberately: app.py reorders its routes and wraps get_html_template, and
+# buddy/http_guard.py relies on its /login and /project/file behaviour. tests/test_app.py covers these.
 chainlit==2.11.0
 groq==1.7.0
+# Brevo email API client (buddy/mailer.py); also a dependency of chainlit and groq.
+httpx==0.28.1
 rank-bm25==0.2.2
 python-docx==1.2.0
 SQLAlchemy==2.1.1

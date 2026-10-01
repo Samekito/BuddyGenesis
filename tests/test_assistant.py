@@ -6,6 +6,8 @@ import httpx
 import pytest
 
 from buddy.assistant import (
+    ANSWER_MAX_TOKENS,
+    FAILED_REPLY_FLAG,
     AnswerFailed,
     FALLBACK_REPLIES,
     GENERIC_FAILURE_REPLY,
@@ -190,3 +192,54 @@ def test_history_from_steps_keeps_only_recent_messages():
 
 def test_history_from_steps_handles_thread_without_messages():
     assert history_from_steps([]) == []
+
+
+async def test_rewrite_asks_gpt_oss_models_for_low_reasoning_effort():
+    client = FakeGroq(reply="In which semester is CSC 101 taken?")
+
+    await standalone_question(client, "openai/gpt-oss-120b", FOLLOW_UP, FOLLOW_UP_HISTORY)
+
+    assert client.requests[0]["reasoning_effort"] == "low"
+
+
+async def test_rewrite_does_not_send_reasoning_effort_to_other_models():
+    # Models without reasoning reject the whole request if the parameter is present.
+    client = FakeGroq(reply="In which semester is CSC 101 taken?")
+
+    await standalone_question(client, "llama-3.1-8b-instant", FOLLOW_UP, FOLLOW_UP_HISTORY)
+
+    assert "reasoning_effort" not in client.requests[0]
+
+
+async def test_answer_length_is_capped():
+    client = FakeGroq(tokens=["ok"])
+
+    await _collect(client)
+
+    assert client.requests[0]["max_completion_tokens"] == ANSWER_MAX_TOKENS
+
+
+def test_history_from_steps_drops_failed_replies():
+    steps = [
+        _step("user_message", "q1"),
+        {**_step("assistant_message", "Please try again."), "metadata": {FAILED_REPLY_FLAG: True}},
+        _step("user_message", "q2"),
+    ]
+
+    assert history_from_steps(steps) == [{"role": "user", "content": "q1"}, {"role": "user", "content": "q2"}]
+
+
+def test_history_from_steps_reads_failure_flag_stored_as_json_text():
+    # Steps read back from the database carry metadata as the stored JSON string.
+    steps = [
+        _step("user_message", "q1"),
+        {**_step("assistant_message", "Please try again."), "metadata": '{"failedReply": true}'},
+    ]
+
+    assert history_from_steps(steps) == [{"role": "user", "content": "q1"}]
+
+
+def test_history_from_steps_tolerates_unreadable_metadata():
+    steps = [_step("user_message", "q1"), {**_step("assistant_message", "a1"), "metadata": "not json"}]
+
+    assert history_from_steps(steps) == [{"role": "user", "content": "q1"}, {"role": "assistant", "content": "a1"}]
