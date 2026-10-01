@@ -10,6 +10,9 @@ data/
 .pytest_cache/
 .claude/settings.local.json
 /*.png
+# Word lock files and the separate BuddyGenesis repo (a nested checkout, not a submodule)
+~$*
+BuddyGenesis/
 
 # Personal agent constitution — kept local, not part of the app
 CLAUDE.md
