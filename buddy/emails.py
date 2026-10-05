@@ -61,6 +61,21 @@ def password_reset(to: str, name: str, link: str, valid_minutes: int) -> Email:
     )
 
 
+def google_account_notice(to: str, sign_in_link: str) -> Email:
+    return _email(
+        to,
+        subject=f"How to sign in to {APP_NAME}",
+        greeting_name=None,
+        paragraphs=[
+            f"Someone asked to reset the {APP_NAME} password for this email address, but this address signs in with Google, so there is no {APP_NAME} password to reset.",
+            "Use \"Continue with Google\" on the sign-in page instead. If you cannot get into your Google account, use Google's own account recovery.",
+        ],
+        link=sign_in_link,
+        link_label="Go to sign in",
+        footer="If you did not ask for this, ignore this email. Nothing has been changed.",
+    )
+
+
 def _email(
     to: str, subject: str, greeting_name: str | None, paragraphs: list[str], link: str, link_label: str, footer: str
 ) -> Email:

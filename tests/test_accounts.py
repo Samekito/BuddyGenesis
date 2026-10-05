@@ -2,11 +2,13 @@ import asyncio
 import re
 import threading
 import time
+import uuid
 from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pytest
+from sqlalchemy import text
 from sqlalchemy.exc import OperationalError
 from sqlalchemy.ext.asyncio import create_async_engine
 
@@ -378,3 +380,33 @@ async def test_sign_in_turned_away_by_a_full_hashing_queue_reports_an_outage(mon
 
     with pytest.raises(AccountsUnavailable):
         await authenticate(store, "ada@example.com", "correct-horse", SETTINGS)
+
+
+async def _add_google_user(store, email):
+    # How Chainlit records a Google sign-in: a users row whose identifier is the email (app.google_login).
+    async with store._engine.begin() as connection:
+        await connection.execute(
+            text('INSERT INTO users ("id", "identifier", "metadata", "createdAt") VALUES (:id, :identifier, :metadata, :created_at)'),
+            {"id": str(uuid.uuid4()), "identifier": email, "metadata": "{}", "created_at": "2026-10-01T00:00:00Z"},
+        )
+
+
+async def test_reset_request_for_a_google_account_explains_how_to_sign_in(store, mailer):
+    await _add_google_user(store, "grace@gmail.com")
+
+    sent = await start_password_reset(store, mailer, APP_URL, "Grace@Gmail.com")
+
+    assert sent
+    notice = mailer.sent[-1]
+    assert notice.to == "grace@gmail.com"
+    assert "Continue with Google" in notice.text and f"{APP_URL}/login" in notice.text
+    assert "token=" not in notice.text
+
+
+async def test_reset_request_for_an_account_with_a_password_still_sends_a_reset_link(store, mailer):
+    await _create_account(store, mailer, email="ada@gmail.com")
+    await _add_google_user(store, "ada@gmail.com")
+
+    await start_password_reset(store, mailer, APP_URL, "ada@gmail.com")
+
+    assert "reset-password?token=" in mailer.sent[-1].text
