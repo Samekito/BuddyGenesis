@@ -78,21 +78,13 @@ reaction_on_message_received = false
     sample_rate = 24000
 
 [features.mcp]
-    # Enable Model Context Protocol (MCP) features
+    # Model Context Protocol stays off (CLAUDE.md hard rule): no [[features.mcp.servers]] entries,
+    # and users may not add their own servers. Chainlit 2.12 replaced the old per-transport
+    # [features.mcp.sse/streamable-http/stdio] sections with this format.
     enabled = false
 
-[features.mcp.sse]
+[features.mcp.user_servers]
     enabled = false
-
-[features.mcp.streamable-http]
-    enabled = false
-
-[features.mcp.stdio]
-    enabled = false
-    # Only the executables in the allow list can be used for MCP stdio server.
-    # Only need the base name of the executable, e.g. "npx", not "/usr/bin/npx".
-    # Please don't comment this line for now, we need it to parse the executable name.
-    allowed_executables = []
 
 [UI]
 # Name of the assistant.
