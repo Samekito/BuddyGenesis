@@ -279,7 +279,15 @@ for _path, _file_name in PAGES.items():
     server.add_api_route(_path, _serve_page(_file_name), methods=["GET"], include_in_schema=False)
 
 
-@server.get("/ready", include_in_schema=False)
+# Uptime monitors such as UptimeRobot often send HEAD; Chainlit's own /health answers only GET
+# (405 otherwise), which made both monitors report the site as down.
+@server.api_route("/health", methods=["GET", "HEAD"], include_in_schema=False)
+async def liveness() -> JSONResponse:
+    """Answers whenever the process is up; Render's health check and the keep-awake monitor use it."""
+    return JSONResponse({"status": "ok"})
+
+
+@server.api_route("/ready", methods=["GET", "HEAD"], include_in_schema=False)
 async def readiness() -> JSONResponse:
     """For an uptime monitor. Render's own health check uses /health.
 
@@ -307,7 +315,8 @@ def _move_ahead_of_chainlit(path: str) -> None:
     routes.insert(0, ours[-1])
 
 
-for _path in (*PAGES, "/auth/signup", "/auth/verify-email", "/auth/password-reset", "/auth/password-reset/confirm", "/ready"):
+# Moving ahead also drops Chainlit's GET-only /health in favour of ours (same reply, plus HEAD).
+for _path in (*PAGES, "/auth/signup", "/auth/verify-email", "/auth/password-reset", "/auth/password-reset/confirm", "/health", "/ready"):
     _move_ahead_of_chainlit(_path)
 
 # `chainlit run -w` re-imports this file into the running server, where adding middleware raises.
