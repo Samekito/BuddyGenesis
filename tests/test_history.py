@@ -168,3 +168,14 @@ def test_schema_has_a_column_for_every_step_field_chainlit_writes():
 
 def test_schema_has_a_column_for_every_element_field_chainlit_writes():
     assert set(ElementDict.__annotations__) <= _schema_columns("elements")
+
+
+async def test_data_layer_recovers_when_the_database_closed_an_idle_connection(tmp_path):
+    # Neon closes idle connections when it suspends; the pool must not hand a dead one back out.
+    data_layer = create_data_layer(f"sqlite+aiosqlite:///{(tmp_path / 'h.db').as_posix()}")
+    async with data_layer.engine.connect() as connection:
+        raw = await connection.get_raw_connection()
+        await raw.driver_connection.close()
+
+    assert await database_reachable(data_layer.engine)
+    await data_layer.engine.dispose()
