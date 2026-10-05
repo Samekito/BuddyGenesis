@@ -146,6 +146,12 @@ class AccountStore:
             ).first()
         return Account(email=row[0], name=row[1], password_hash=row[2]) if row else None
 
+    async def is_google_user(self, email: str) -> bool:
+        """Whether this address has signed in with Google (Chainlit keys those users by their email)."""
+        async with self._engine.connect() as connection:
+            row = (await connection.execute(text('SELECT 1 FROM users WHERE "identifier" = :email'), {"email": email})).first()
+        return row is not None
+
     async def save_token(
         self,
         token_hash: str,
@@ -314,12 +320,19 @@ def reset_request_problem(email: str) -> str | None:
 
 
 async def start_password_reset(store: AccountStore, mailer: Mailer, app_url: str, email: str) -> bool:
-    """Emails a reset link if the address has an account. Meant to run in the background; returns whether one was sent."""
+    """Emails a reset link if the address has a password account. Meant to run in the background.
+
+    A Google-only address has no password to reset, so it gets a note saying to use Google instead,
+    rather than nothing (which left people waiting for an email that never came). Returns whether
+    an email was sent.
+    """
     address = normalize_email(email)
     try:
         account = await store.find(address)
         if account is None:
-            return False
+            if not await store.is_google_user(address):
+                return False
+            return await _send(mailer, emails.google_account_notice(address, f"{app_url}/login"))
         token = secrets.token_urlsafe(TOKEN_BYTES)
         await store.save_token(_digest(token), RESET_PURPOSE, address, timedelta(minutes=RESET_LINK_MINUTES))
     except DATABASE_ERRORS:
