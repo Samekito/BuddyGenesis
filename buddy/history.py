@@ -17,7 +17,8 @@ from urllib.parse import urlsplit, urlunsplit
 from chainlit.data.sql_alchemy import SQLAlchemyDataLayer
 from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
-from sqlalchemy.ext.asyncio import AsyncEngine
+from sqlalchemy.ext.asyncio import AsyncEngine, AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
 
 SCHEMA_DIR = Path(__file__).parent / "schema"
 # buddy/schema/<dialect>/NNN_description.sql, applied in NNN order and recorded once applied.
@@ -63,9 +64,16 @@ def create_data_layer(database_url: str) -> SQLAlchemyDataLayer:
     if is_sqlite(url):
         _prepare_sqlite(url)
     data_layer = SQLAlchemyDataLayer(conninfo=url, connect_args=connect_args(needs_tls))
-    # Chainlit logs failed writes with the SQL error text, which by default includes the bound
-    # parameters — i.e. full user messages, answers and password hashes. Keep them out of the logs.
-    data_layer.engine.sync_engine.hide_parameters = True
+    # Chainlit builds its engine without options, so swap in one with the two this app needs
+    # (Chainlit itself only uses `engine` and `async_session`; no connection is open yet):
+    # - pool_pre_ping: Neon closes idle connections when it suspends, and handing such a dead
+    #   connection back out failed sign-ins, resets and history writes with "connection is closed".
+    # - hide_parameters: Chainlit logs failed writes with the SQL error text, which by default
+    #   includes the bound parameters, i.e. full messages, answers and password hashes.
+    data_layer.engine = create_async_engine(
+        url, connect_args=connect_args(needs_tls), pool_pre_ping=True, hide_parameters=True
+    )
+    data_layer.async_session = sessionmaker(bind=data_layer.engine, expire_on_commit=False, class_=AsyncSession)
     return data_layer
 
 

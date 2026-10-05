@@ -404,3 +404,8 @@ async def _run_and_wait(app_module, work):
     app_module._run_in_background(work)
     while app_module._background_tasks:
         await asyncio.sleep(0.01)
+
+
+@pytest.mark.parametrize("path", ["/health", "/ready"])
+def test_health_routes_answer_head_requests_from_uptime_monitors(client, path):
+    assert client.head(path).status_code == 200
