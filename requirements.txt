@@ -8,7 +8,7 @@ rank-bm25==0.2.2
 python-docx==1.2.0
 SQLAlchemy==2.1.1
 aiosqlite==0.22.1
-asyncpg==0.31.0
+asyncpg==0.32.0
 greenlet==3.5.6
 # traceloop-sdk (pulled in by chainlit -> literalai) imports requests without declaring it.
 requests==2.34.2
